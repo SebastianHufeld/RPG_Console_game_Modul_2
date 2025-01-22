@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Enemy: Charakter{
+class Enemy: Charakter, CustomStringConvertible{
     var attackPoints: Int
     var blockPoints: Int
     
@@ -16,5 +16,7 @@ class Enemy: Charakter{
         self.blockPoints = blockPoints
         super.init(name: name, hp: hp)
     }
+    var description: String {
+        return "Die Gegner: \(name): \(hp) Lebenspunkte, \(attackPoints) Angriffspunkte, \(blockPoints) Blockpunkte" }
     
 }

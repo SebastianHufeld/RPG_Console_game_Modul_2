@@ -14,6 +14,9 @@ class Tank: Hero {
         self.stamina = stamina
         super.init(name: name, hp: hp, attackPoints: attackPoints, defensePoints: defensePoints)
     }
+    override var description: String{
+        return super.description + ", \(stamina) Staminapunkte"
+    }
     
     
     func jumpAttack(jumpTo: Enemy){

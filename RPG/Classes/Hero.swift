@@ -7,9 +7,12 @@
 
 import Foundation
 
-class Hero: Charakter{
-    var attackPoints: Int
-    var defensePoints: Int
+class Hero: Charakter, CustomStringConvertible{
+    var attackPoints: Int = 0
+    var defensePoints: Int = 0
+    
+    var description: String {
+        return "Unser Held: \(name): \(hp) Lebenspunkte, \(attackPoints) Angriffspunkte, \(defensePoints) Verteidungungspunkte" }
     
     init(name: String, hp: Double, attackPoints: Int, defensePoints: Int) {
         self.attackPoints = attackPoints

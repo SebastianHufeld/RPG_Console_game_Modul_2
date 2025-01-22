@@ -15,6 +15,10 @@ class Magican: Hero{
         super.init(name: name, hp: hp, attackPoints: attackPoints, defensePoints: defensePoints)
     }
     
+    override var description: String{
+        return super.description + ", \(mana) Manapunkte"
+    }
+    
     func healHeros(toHeal: Hero){
         toHeal.hp += 20
         mana -= 20

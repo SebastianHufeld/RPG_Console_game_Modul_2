@@ -14,7 +14,9 @@ class Helper: Enemy{
         self.spawns = spawns
         super.init(name: name, hp: hp, attackPoints: attackPoints, blockPoints: blockPoints)
     }
-    
+    override var description: String{
+        return super.description + ", \(spawns) Spawn verfügbar"
+    }
     func healBoss(heal: Endboss){
         heal.hp += 50
         print("\(self.name) hat \(heal.name) wieder 50 Lebenspunkte gegeben! \(heal.name) hat nun \(heal.hp) Lebenspunkte! ❤️‍🩹")

@@ -15,9 +15,12 @@ class Endboss: Enemy{
         self.helper = helper
         super.init(name: name, hp: hp, attackPoints: attackPoints, blockPoints: blockPoints)
     }
+    override var description: String{
+        return super.description + ", \(helper) Helfer verfügbar"
+    }
     
     func callHelper(helpingHand: Helper){
-        if self.hp < 50 && helper > 0 {
+        if self.hp < 80 && helper > 0 {
             print("Die Gesundheit des Bosses ist unter 50 Lebenspunkte! Er beschwört seinen Helfer. 🪄")
         }
     }
