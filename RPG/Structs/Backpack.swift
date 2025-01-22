@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct BackPack{
+    var arrows: Int
+    var fireArrows: Int
+}

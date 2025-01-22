@@ -19,26 +19,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		40E632C32D3EA42400326698 /* UML_Diagram_Konsolenspiel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UML_Diagram_Konsolenspiel.png; sourceTree = "<group>"; };
-		CE2F4BF62C9D636900643971 /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = RPG; path = "/Users/basti/Documents/Syntax Institut/Modul 2 - Grundlagen Programmierung/Projekte/Abschlussprojekt/02-abschlussprojekt-SebastianHufeld/build/Debug/RPG"; sourceTree = "<absolute>"; };
+		400740602D40DE9700A9882C /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		40E632E92D3EAB2300326698 /* Structs */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Structs;
-			sourceTree = "<group>";
-		};
-		40E632EF2D3EAB3500326698 /* Classes */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		40E632F72D3EAB6900326698 /* Utilities */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		CE2F4BF82C9D636900643971 /* RPG */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RPG;
@@ -57,22 +41,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		40E633112D3EAE2200326698 /* UML Diagram */ = {
-			isa = PBXGroup;
-			children = (
-				40E632C32D3EA42400326698 /* UML_Diagram_Konsolenspiel.png */,
-			);
-			path = "UML Diagram";
-			sourceTree = "<group>";
-		};
 		CE2F4BED2C9D636900643971 = {
 			isa = PBXGroup;
 			children = (
-				40E633112D3EAE2200326698 /* UML Diagram */,
 				CE2F4BF82C9D636900643971 /* RPG */,
-				40E632E92D3EAB2300326698 /* Structs */,
-				40E632EF2D3EAB3500326698 /* Classes */,
-				40E632F72D3EAB6900326698 /* Utilities */,
+				400740602D40DE9700A9882C /* RPG */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,16 +65,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				40E632E92D3EAB2300326698 /* Structs */,
-				40E632EF2D3EAB3500326698 /* Classes */,
-				40E632F72D3EAB6900326698 /* Utilities */,
 				CE2F4BF82C9D636900643971 /* RPG */,
 			);
 			name = RPG;
 			packageProductDependencies = (
 			);
 			productName = RPG;
-			productReference = CE2F4BF62C9D636900643971 /* RPG */;
+			productReference = 400740602D40DE9700A9882C /* RPG */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
