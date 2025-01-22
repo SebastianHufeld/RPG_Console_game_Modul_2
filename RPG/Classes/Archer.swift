@@ -62,9 +62,9 @@ class Archer: Hero{
                     backPack.fireArrows -= 3
                     target.hp -= Double(damage)
                     print("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
-                    print("Du hast \(damage) Schaden mit 3 Feuerpfeilen gemacht. Du hast noch \(backPack.fireArrows) Feuerpfeile im Rucksack.")
+                    print("Du hast \(damage) Schaden mit 3 \(backPack.arrowName) gemacht. Du hast noch \(backPack.fireArrows) \(backPack.arrowName) im Rucksack.")
                 } else {
-                    print("Du hast keine Feuerpfeile mehr.")
+                    print("Du hast keine \(backPack.arrowName) mehr.")
                 }
             default:
                 print("Du hast keine Auswahl getroffen, bitte versuche es erneut.")

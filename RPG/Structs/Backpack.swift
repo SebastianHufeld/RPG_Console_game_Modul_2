@@ -9,5 +9,6 @@ import Foundation
 
 struct BackPack{
     var arrows: Int
+    var arrowName: String
     var fireArrows: Int
 }

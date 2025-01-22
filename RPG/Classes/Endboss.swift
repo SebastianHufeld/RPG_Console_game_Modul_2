@@ -24,6 +24,7 @@ class Endboss: Enemy{
     
     func groupAttack(target: [Hero]){
         target.forEach{ hero in hero.hp -= 30 }
+        print("🌪️🌪️🌪️🌪️🌪️🌪️")
         print("Oh nein! Der Endboss \(self.name) hat einen starken Gruppenangriff gestartet, der die Rüstung direkt durchdringt und deinen Helden jeweils 30 Lebenspunkte abzieht!")
     }
 }
