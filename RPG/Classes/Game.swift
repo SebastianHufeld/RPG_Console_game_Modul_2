@@ -16,24 +16,31 @@ func game() {
     
     let endBoss = Endboss(name: "Malvortas, der Unbesiegte", hp: 200, attackPoints: 55, blockPoints: 80, helper: 1)
     let helper = Helper(name: "Zeroth, der Heiler", hp: 50, attackPoints: 0, blockPoints: 50, spawns: 1)
-    
-    let enemies: [Enemy] = [endBoss, helper]
-    
-    print("-----HELDEN-----")
-    heros.forEach{ print ($0) }
-    print("-----GEGNER-----")
-    enemies.forEach{ print ($0) }
-    
     let backPack = BackPack( arrows: 20, arrowName: "Feuerpfeile", fireArrows: 12)
     let healPotion = Potions(name: "Heilungstrank", effect: "Stellt 20% der Gesundheit wieder her", potionsLeft: 6, used: 0)
     let shieldPotion = Potions(name: "Schildtrank", effect: "Blockt die Angriffe für eine Runde ab", potionsLeft: 6, used: 0)
     
     let inventory: [Inventory] = [backPack, healPotion, shieldPotion]
     
+    let enemies: [Enemy] = [endBoss, helper]
+    
+    var currentRound = 1
+    var gameStatus: GameStatus = .prepare
+    
+    while gameStatus != .win && gameStatus != .gameover{
+        print(currentRound.roundHeader())
+        print("-----HELDEN-----")
+        heros.forEach{ print ($0) }
+        print("-----GEGNER-----")
+        enemies.forEach{ print ($0) }
+    }
+    
+    
+    
+    
+    
     inventory.forEach{ item in
         print(item.description())
     }
     
-    let aktuelleRunde = 4
-    print(aktuelleRunde.roundHeader())
 }
