@@ -5,7 +5,8 @@
 //  Created by Sebastian Hufeld on 20.01.25.
 //
 
-struct Potions{
+struct Potions: Inventory{
+    
     var name: String
     var effect: String
     var potionsLeft: Int
@@ -23,5 +24,8 @@ struct Potions{
             potionsLeft -= 1
             print("Du hast einen Trank genommen!")
         }
+    }
+    func description() -> String {
+        return "Trank: \(name), \nEffekt: \(effect), \nVerbleinde Anzahl an Tränken: \(potionsLeft)"
     }
 }

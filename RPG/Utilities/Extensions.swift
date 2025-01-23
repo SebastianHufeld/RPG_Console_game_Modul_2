@@ -7,3 +7,15 @@
 
 import Foundation
 
+
+extension Int {
+    func roundHeader() -> String{
+        return "========= RUNDE \(self) BEGINNT =========\n"
+    }
+}
+
+extension Double {
+    var twoDigits: Double {
+        return Double(String(format: "%.2f",self))!
+    }
+}

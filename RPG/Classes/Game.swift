@@ -23,4 +23,17 @@ func game() {
     heros.forEach{ print ($0) }
     print("-----GEGNER-----")
     enemies.forEach{ print ($0) }
+    
+    let backPack = BackPack( arrows: 20, arrowName: "Feuerpfeile", fireArrows: 12)
+    let healPotion = Potions(name: "Heilungstrank", effect: "Stellt 20% der Gesundheit wieder her", potionsLeft: 6, used: 0)
+    let shieldPotion = Potions(name: "Schildtrank", effect: "Blockt die Angriffe für eine Runde ab", potionsLeft: 6, used: 0)
+    
+    let inventory: [Inventory] = [backPack, healPotion, shieldPotion]
+    
+    inventory.forEach{ item in
+        print(item.description())
+    }
+    
+    let aktuelleRunde = 4
+    print(aktuelleRunde.roundHeader())
 }

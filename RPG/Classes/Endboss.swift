@@ -22,6 +22,8 @@ class Endboss: Enemy{
     func callHelper(helpingHand: Helper){
         if self.hp < 80 && helper > 0 {
             print("Die Gesundheit des Bosses ist unter 50 Lebenspunkte! Er beschwört seinen Helfer. 🪄")
+            let helper: Helper = Helper(name: "Zeroth, der Heiler", hp: 50, attackPoints: 0, blockPoints: 50, spawns: 1)
+            helper.spawns -= 1
         }
     }
     

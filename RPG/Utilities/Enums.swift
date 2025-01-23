@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+enum GameStatus: String {
+    case prepare = "Mach dich für den Kampf bereit!"
+    case fight = "Kämpft! "
+    case win = "Du hast den Gegner besiegt!"
+    case gameover = "Alle deine Helden wurden vernichtet!"
+}
+
+enum Condition {
+    
+    case fit
+    case wounded
+    case eliminated
+    case healed
+}
