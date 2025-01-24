@@ -17,6 +17,10 @@ class Enemy: Charakter, CustomStringConvertible{
         super.init(name: name, hp: hp)
     }
     var description: String {
-        return "Die Gegner: \(name): \(hp) Lebenspunkte, \(attackPoints) Angriffspunkte, \(blockPoints) Blockpunkte" }
+        return "Die Gegner: \(name): \(hp) Lebenspunkte, \(attackPoints) Angriffspunkte, \(blockPoints) Blockpunkte"
+    }
     
+    func randomAttack(_ hero: [Hero]){
+        normalAttack(target: hero.randomElement()!)
+    }
 }

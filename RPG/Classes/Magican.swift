@@ -34,7 +34,7 @@ class Magican: Hero{
     }
     
     func magicShield(heroes: [Hero]){
-        if mana <= 40 {
+        if mana < 40 {
             print("Du hast nicht genug Mana mehr! Dein magisches Schild kann nicht genutzt werden.")
             return
         }
@@ -43,5 +43,27 @@ class Magican: Hero{
         mana -= 40
         heroes.forEach{ hero in hero.defensePoints += 40 }
         print("Du hast das magische Schild ausgewählt! Du und deine Mitstreiter haben wieder 40 Punkte in der Verteidungung dazubekommen.")
+    }
+    
+    override func attackMenu(_ enemies: [Enemy], _ heros: [Hero]) {
+        print("\(self.name) ist dran! Er hat \(self.hp) Lebenspunkte & \(self.mana) Manapunkte.")
+        print("Wähle aus, was du machen möchtest:")
+        print("[1] - Heldenheilung (Ein Zufälliger Held erhält 20 Lebenspunkte. Kosten: 20 Manapunkte)")
+        print("[2] - Gegner vergiften (Schaden: 15, Manakosten: 15, Hält 2 Runden)")
+        print("[3] - Magisches Schild (40 Verteidigungspunkte für deine Helden. Kosten: 40 Manapunkte)")
+        
+        let input = readLine()!
+        
+        switch input {
+        case "1":
+            healHeros(toHeal: heros.randomElement()!)
+        case "2":
+            poisenEnemy(target: enemies.randomElement()!)
+        case "3":
+            magicShield(heroes: heros)
+        default:
+            print("Du hast keine Attacke ausgewählt! Wähle eine Attacke aus.")
+            attackMenu(enemies, heros)
+        }
     }
 }

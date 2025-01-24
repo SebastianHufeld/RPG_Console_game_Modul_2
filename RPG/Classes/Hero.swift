@@ -10,6 +10,7 @@ import Foundation
 class Hero: Charakter, CustomStringConvertible{
     var attackPoints: Int = 0
     var defensePoints: Int = 0
+    var potions: Potions?
     
     var description: String {
         return "Unser Held: \(name): \(hp) Lebenspunkte, \(attackPoints) Angriffspunkte, \(defensePoints) Verteidungungspunkte" }
@@ -22,5 +23,9 @@ class Hero: Charakter, CustomStringConvertible{
     
     func toHeal (_ toHeal: Double){
         self.hp += toHeal
+    }
+    
+    func attackMenu(_ enemies: [Enemy], _ heros: [Hero]){
+        
     }
 }

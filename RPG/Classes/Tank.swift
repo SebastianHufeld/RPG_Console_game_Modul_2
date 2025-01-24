@@ -20,9 +20,11 @@ class Tank: Hero {
     
     
     func jumpAttack(jumpTo: Enemy){
-        if self.stamina <= 15 {
+        if self.stamina < 15 {
             jumpTo.hp -= 12
             print("Du kannst diesen Angriff nicht ausführen, da du keine Stamina mehr hast. Daher wurde ein normaler Angriff ausgeführt, welcher 12 Lebenspunkte abgezogen hat.")
+            print("\(jumpTo.name) hat jetzt noch \(jumpTo.hp) Lebenspunkte.")
+            return
         }
         self.stamina -= 15
         jumpTo.hp -= 30
@@ -31,9 +33,11 @@ class Tank: Hero {
     }
     
     func massivePunch(target: Enemy){
-        if self.stamina <= 10{
+        if self.stamina < 10{
             target.hp -= 12
             print("Aktuell hast du nicht genug Stamina. Nimm in der nächsten Runde einen Stamina Trank. Du hast jetzt einen Normalen Angriff gestartet.")
+            print("\(target.name) hat jetzt noch \(target.hp) Lebenspunkte.")
+            return
         }
         
         self.stamina -= 10
@@ -43,14 +47,38 @@ class Tank: Hero {
     }
     
     func blockAttack(attack: Enemy){
-        if self.stamina <= 8{
+        if self.stamina < 8{
             attack.hp -= 12
             print("Du kannst diesen Schildangriff nicht ausführen, da du keine Stamina mehr hast. Ein normaler Angriff wurde ausgeführt, welcher 12 Lebenspunkte abgezogen hat.")
+            print("\(attack.name) hat jetzt noch \(attack.hp) Lebenspunkte.")
+            return
         }
         
         self.stamina -= 8
         attack.hp -= 18
         print("🛡️🛡️Schildattack🛡️🛡️")
         print("Du hast mit deiner Schildattacke 18 Schaden ausgeteilt! \(attack.name) hat noch \(attack.hp) Lebenspunkte!")
+    }
+    
+    override func attackMenu(_ enemies: [Enemy], _ heros: [Hero]) {
+        print("\(self.name) ist dran! Er hat \(self.hp) Lebenspunkte & \(self.stamina) Staminapunkte.")
+        print("Wähle aus, was du machen möchtest:")
+        print("[1] - Sprungangriff (Schaden: 30, Staminakosten: 15)")
+        print("[2] - Gewaltiger Schlag (Schaden: 20, Staminakosten: 10)")
+        print("[3] - Schildattacke (Schaden: 18, Staminakosten: 8)")
+        
+        let input = readLine()!
+        
+        switch input {
+        case "1":
+            jumpAttack(jumpTo: enemies.randomElement()!)
+        case "2":
+            massivePunch(target: enemies.randomElement()!)
+        case "3":
+            blockAttack(attack: enemies.randomElement()!)
+        default:
+            print("Du hast keine Attacke ausgewählt! Wähle eine Attacke aus.")
+            attackMenu(enemies, heros)
+        }
     }
 }
