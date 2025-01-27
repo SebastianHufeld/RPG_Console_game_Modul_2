@@ -10,6 +10,7 @@ import Foundation
 class Endboss: Enemy{
     
     var helper: Int
+    var helperSummoned = false
     
     init(name: String, hp: Double, attackPoints: Int, blockPoints: Int, helper: Int) {
         self.helper = helper
@@ -19,7 +20,7 @@ class Endboss: Enemy{
         return super.description + ", \(helper) Helfer verfügbar"
     }
     
-    func callHelper(helpingHand: Helper) -> Helper?{
+    func callHelper() -> Helper?{
         if self.hp < 80 && helper > 0 {
             print("Die Gesundheit des Bosses ist unter 80 Lebenspunkte! Er beschwört seinen Helfer. 🪄")
             let newHelper: Helper = Helper(name: "Zeroth, der Heiler", hp: 50, attackPoints: 0, blockPoints: 50, spawns: 1)
@@ -38,17 +39,19 @@ class Endboss: Enemy{
     }
     
     func specialAttack(target: Hero){
-        target.hp -= 50
+        let damage = 50
+        takeDamage(damage)
         print("\(self.name) hat \(target.name) mit einer mächtigen Specialattacke angegriffen! \(target.name) verliert 50 Lebenspunkte!")
     }
     
     override func normalAttack(target: Charakter) {
-        target.hp -= 20
+        let damage: Int = 20
+        takeDamage(damage)
         print("\(self.name) hat \(target.name) 20 Lebenspunkte abgezogen. \(target.hp) Lebenspunkt sind noch vorhanden.")
     }
     
     override func randomAttack(_ hero: [Hero]) {
-        var randomNr: Int = Int.random(in: 1...3)
+        let randomNr: Int = Int.random(in: 1...3)
         
         switch randomNr{
         case 1:

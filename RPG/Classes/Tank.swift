@@ -29,7 +29,7 @@ class Tank: Hero {
         self.stamina -= 15
         jumpTo.hp -= 30
         print("💨💨Sprungangriff💨💨")
-        print("Du hast einen Sprungangriff genutzt und \(jumpTo.name) 20 Lebenspunkte abgezogen. Der Angriff hat dich ")
+        print("Du hast einen Sprungangriff genutzt und \(jumpTo.name) 20 Lebenspunkte abgezogen. Du hast noch \(self.stamina) Stamina übrig.")
     }
     
     func massivePunch(target: Enemy){
@@ -61,8 +61,7 @@ class Tank: Hero {
     }
     
     override func attackMenu(_ enemies: [Enemy], _ heros: [Hero]) {
-        print("\(self.name) ist dran! Er hat \(self.hp) Lebenspunkte & \(self.stamina) Staminapunkte.")
-        print("Wähle aus, was du machen möchtest:")
+        print("\nWähle deinen Angriff aus:")
         print("[1] - Sprungangriff (Schaden: 30, Staminakosten: 15)")
         print("[2] - Gewaltiger Schlag (Schaden: 20, Staminakosten: 10)")
         print("[3] - Schildattacke (Schaden: 18, Staminakosten: 8)")

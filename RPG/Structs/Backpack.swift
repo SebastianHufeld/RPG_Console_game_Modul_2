@@ -19,12 +19,15 @@ struct Backpack{
     
     mutating func potionsMenu(_ hero: Hero){
         print("Welchen Trank willst du ausrüsten?")
-        potions.enumerated().forEach({print("\($0+1).\($1)")})
+            potions.enumerated().forEach({ index, potion in
+                print("\(index + 1). \(potion.name) | \(potion.effect) ")
+            })
+            
         
-        var input: Int = Int(readLine()!) ?? 0
+        let input: Int = Int(readLine()!) ?? 0
         if input >= 1 && input <= potions.count {
             hero.potions = potions[input-1]
-            print("\(potions[input-1].name) erfolreich ausgerüstet!")
+            print("\(potions[input-1].name) erfolreich ausgerüstet!\n")
             potions.remove(at: input-1)
         } else {
             print("Ungültige Eingabe! Wähle eine Zahl von 1-\(potions.count)!")

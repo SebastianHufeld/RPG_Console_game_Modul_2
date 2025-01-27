@@ -10,6 +10,7 @@ import Foundation
 class Enemy: Charakter, CustomStringConvertible{
     var attackPoints: Int
     var blockPoints: Int
+    var condition: Condition = .fit
     
     init(name: String, hp: Double, attackPoints: Int, blockPoints: Int) {
         self.attackPoints = attackPoints
@@ -22,5 +23,35 @@ class Enemy: Charakter, CustomStringConvertible{
     
     func randomAttack(_ hero: [Hero]){
         normalAttack(target: hero.randomElement()!)
+    }
+    func updateCondition() {
+        if hp <= 0 {
+            condition = .eliminated
+            print("\(red)\(name) ist eleminiert worden.\(reset)")
+        } else if hp < 50 {
+            condition = .wounded
+            print("\(yellow)\(name) ist verwundet.\(reset)")
+        } else {
+            condition = .fit
+            print("\(green)\(name) fühlt sich noch Gesund.\(reset)")
+        }
+    }
+    func takeDamage(_ damage: Int) {
+        var remainingDamage = damage
+        
+        if blockPoints > 0 {
+            if blockPoints >= remainingDamage {
+                blockPoints -= remainingDamage
+                remainingDamage = 0
+            } else {
+                remainingDamage -= blockPoints
+                blockPoints = 0
+            }
+        }
+        
+        if remainingDamage > 0 {
+            hp -= Double(remainingDamage)
+            if hp < 0 { hp = 0 }
+        }
     }
 }

@@ -1,5 +1,4 @@
 import Foundation
 
-print("Hello, World!")
-
-game()
+let game = Game()
+game.play()

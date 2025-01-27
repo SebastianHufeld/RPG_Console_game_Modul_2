@@ -9,16 +9,16 @@ import Foundation
 
 class Archer: Hero{
     var arrows: Int
-    var backPack: BackPack
+    var backPack: Items
     private var sneakAttackCount: Int = 2
     
-    init(name: String, hp: Double, attackPoints: Int, defensePoints: Int ,arrows: Int, backPack: BackPack) {
+    init(name: String, hp: Double, attackPoints: Int, defensePoints: Int ,arrows: Int, backPack: Items) {
         self.arrows = arrows
         self.backPack = backPack
         super.init(name: name, hp: hp, attackPoints: attackPoints, defensePoints: defensePoints)
     }
     override var description: String{
-        return super.description + ", \(arrows) normale Pfeile, \(backPack.arrows) normale Pfeile im Rucksack sowie \(backPack.fireArrows) Feuerpfeile"
+        return super.description + ", \(backPack.arrows) normale Pfeile, \(backPack.arrows) normale Pfeile im Rucksack sowie \(backPack.fireArrows) Feuerpfeile"
     }
     func sneakAttach(target: Enemy){
         if sneakAttackCount <= 0 {
@@ -71,6 +71,24 @@ class Archer: Hero{
             default:
                 print("Du hast keine Auswahl getroffen, bitte versuche es erneut.")
             }
+        }
+    }
+    override func attackMenu(_ enemies: [Enemy], _ heros: [Hero]) {
+        print("\nSie hat \(self.arrows) normale Pfeile & \(self.backPack.fireArrows) \(self.backPack.arrowName).")
+        print("Wähle deine Attacke:")
+        print("[1] - Schleichattacke (Doppelter Schaden, \(sneakAttackCount) verfügbare Angriffe")
+        print("[2] - Dreifachangriff (Entweder mit normalen oder \(backPack.arrowName).")
+        
+        let input = readLine()!
+        
+        switch input {
+        case "1":
+            sneakAttach(target: enemies.randomElement()!)
+        case "2":
+            trippleAttack(target: enemies.randomElement()!)
+        default:
+            print("Du hast keine Attacke ausgewählt! Wähle eine Attacke aus.")
+            attackMenu(enemies, heros)
         }
     }
 }

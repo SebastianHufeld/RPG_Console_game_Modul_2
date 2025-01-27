@@ -14,10 +14,9 @@ enum GameStatus: String {
     case gameover = "Alle deine Helden wurden vernichtet!"
 }
 
-enum Condition {
+enum Condition: String {
     
     case fit
     case wounded
     case eliminated
-    case healed
 }

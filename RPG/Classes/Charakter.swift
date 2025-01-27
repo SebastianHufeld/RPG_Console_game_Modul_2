@@ -11,6 +11,11 @@ class Charakter {
     
     let name: String
     var hp: Double
+    let red = "\u{001B}[31m"
+    let green = "\u{001B}[32m"
+    let yellow = "\u{001B}[33m"
+    let bold = "\u{001B}[1m"
+    let reset = "\u{001B}[0m"
     
     init(name: String, hp: Double) {
         self.name = name
