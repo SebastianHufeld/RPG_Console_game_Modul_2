@@ -23,9 +23,11 @@ class Endboss: Enemy{
     func callHelper() -> Helper?{
         if self.hp < 80 && helper > 0 {
             print("Die Gesundheit des Bosses ist unter 80 Lebenspunkte! Er beschwört seinen Helfer. 🪄")
+            Thread.sleep(forTimeInterval: 0.5)
             let newHelper: Helper = Helper(name: "Zeroth, der Heiler", hp: 50, attackPoints: 0, blockPoints: 50, spawns: 1)
             self.helper -= 1
             print("\(newHelper.name) ist jetzt auf dem Schlachfeld und heilt \(self.name) mit 50 Lebenspunkten")
+            Thread.sleep(forTimeInterval: 0.8)
             newHelper.healBoss(heal: self)
             return newHelper
         }
@@ -34,20 +36,26 @@ class Endboss: Enemy{
     
     func groupAttack(target: [Hero]){
         target.forEach{ hero in hero.hp -= 30 }
-        print("🌪️🌪️🌪️🌪️🌪️🌪️")
+        print("🌪️🌪️🌪️🌪️🌪️🌪️🌪️🌪️🌪️🌪️   ")
+        Thread.sleep(forTimeInterval: 0.5)
         print("Oh nein! Der Endboss \(self.name) hat einen starken Gruppenangriff gestartet, der die Rüstung direkt durchdringt und deinen Helden jeweils 30 Lebenspunkte abzieht!")
+        Thread.sleep(forTimeInterval: 0.8)
     }
     
     func specialAttack(target: Hero){
-        let damage = 50
-        takeDamage(damage)
-        print("\(self.name) hat \(target.name) mit einer mächtigen Specialattacke angegriffen! \(target.name) verliert 50 Lebenspunkte!")
+        target.applyDamage(damage: 50)
+        print("💥💥💥💥💥💥💥💥💥💥")
+        Thread.sleep(forTimeInterval: 0.5)
+        print("\(self.name) hat \(target.name) mit einer mächtigen Specialattacke angegriffen! \(target.name) bekommt 50 Schadenpunkte!")
+        Thread.sleep(forTimeInterval: 0.8)
     }
     
     override func normalAttack(target: Charakter) {
-        let damage: Int = 20
-        takeDamage(damage)
-        print("\(self.name) hat \(target.name) 20 Lebenspunkte abgezogen. \(target.hp) Lebenspunkt sind noch vorhanden.")
+        target.applyDamage(damage: 20)
+        print("🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️")
+        Thread.sleep(forTimeInterval: 0.5)
+        print("\(self.name) hat \(target.name) 20 Schadenspunte zugefügt.")
+        Thread.sleep(forTimeInterval: 0.8)
     }
     
     override func randomAttack(_ hero: [Hero]) {

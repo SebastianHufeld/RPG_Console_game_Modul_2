@@ -43,7 +43,7 @@ class Hero: Charakter, CustomStringConvertible{
         }
     }
     
-    func takeDamage(_ damage: Int) {
+    func takeHeroDamage(_ damage: Int) {
             var remainingDamage = damage
 
             if defensePoints > 0 {

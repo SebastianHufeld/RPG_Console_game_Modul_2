@@ -19,6 +19,9 @@ class Helper: Enemy{
     }
     func healBoss(heal: Endboss){
         heal.hp += 50
+        print("💉💉💉💉💉💉Bossheilung💉💉💉💉💉💉")
+        Thread.sleep(forTimeInterval: 0.5)
         print("\(self.name) hat \(heal.name) wieder 50 Lebenspunkte gegeben! \(heal.name) hat nun \(heal.hp) Lebenspunkte! ❤️‍🩹")
+        Thread.sleep(forTimeInterval: 0.8)
     }
 }

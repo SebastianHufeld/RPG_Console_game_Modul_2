@@ -11,6 +11,8 @@ class Enemy: Charakter, CustomStringConvertible{
     var attackPoints: Int
     var blockPoints: Int
     var condition: Condition = .fit
+    var isPoisoned: Bool = false
+    var poisenRoundsRemaining: Int = 0
     
     init(name: String, hp: Double, attackPoints: Int, blockPoints: Int) {
         self.attackPoints = attackPoints
@@ -24,6 +26,18 @@ class Enemy: Charakter, CustomStringConvertible{
     func randomAttack(_ hero: [Hero]){
         normalAttack(target: hero.randomElement()!)
     }
+    
+    func poisinedEffect(){
+        if isPoisoned{
+            hp -= 15
+            poisenRoundsRemaining -= 1
+            print("\(name) ist vergiftet! Er verliert 15 Lebenspunkte")
+            if poisenRoundsRemaining <= 0 {
+                isPoisoned = false
+            }
+        }
+    }
+    
     func updateCondition() {
         if hp <= 0 {
             condition = .eliminated
@@ -33,7 +47,7 @@ class Enemy: Charakter, CustomStringConvertible{
             print("\(yellow)\(name) ist verwundet.\(reset)")
         } else {
             condition = .fit
-            print("\(green)\(name) fühlt sich noch Gesund.\(reset)")
+            print("\(green)\(name) fühlt sich Gesund.\(reset)")
         }
     }
     func takeDamage(_ damage: Int) {

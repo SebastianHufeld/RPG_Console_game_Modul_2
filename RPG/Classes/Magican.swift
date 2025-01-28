@@ -22,16 +22,25 @@ class Magican: Hero{
     func healHeros(toHeal: Hero){
         toHeal.hp += 20
         mana -= 20
-        print("Du hast einen Heilungszauber ausgewählt. 🩹")
+        print("❤️‍🩹🩹❤️‍🩹🩹❤️‍🩹🩹Heilzauber❤️‍🩹🩹❤️‍🩹🩹❤️‍🩹🩹")
+        Thread.sleep(forTimeInterval: 0.5)
         print("\(toHeal.name) hat jetzt 20 Lebenspunkte dazubekommen.")
         print("\(toHeal.name) hat jetzt \(toHeal.hp) Lebenspunkte.\n")
+        Thread.sleep(forTimeInterval: 0.8)
     }
     
     func poisenEnemy(target: Enemy){
-        target.hp -= 15
-        mana -= 15
-        print("Mit deinem Giftzauber hast du den Gegner vergiftet! 🧪")
-        print("Der Gegner \(target.name) hat jetzt noch \(target.hp).\n")
+        if mana >= 15 {
+            target.isPoisoned = true
+            target.poisenRoundsRemaining = 2
+            mana -= 15
+            print("🧪🧪🧪🧪🧪🧪Giftzauber 🧪🧪🧪🧪🧪🧪")
+            Thread.sleep(forTimeInterval: 0.5)
+            print("Der Gegner \(target.name) wurde vergiftet. Das Gift hält zwei Runden an.\n")
+            Thread.sleep(forTimeInterval: 0.8)
+        } else {
+            print("Nicht genug Mana für diesen Angriff!")
+        }
     }
     
     func magicShield(heroes: [Hero]){
@@ -43,7 +52,10 @@ class Magican: Hero{
         self.defensePoints += 40
         mana -= 40
         heroes.forEach{ hero in hero.defensePoints += 40 }
+        print("🪄🛡️🪄🛡️🪄🛡️ Magieschild 🪄🛡️🪄🛡️🪄🛡️")
+        Thread.sleep(forTimeInterval: 0.5)
         print("Du hast das magische Schild ausgewählt! Du und deine Mitstreiter haben wieder 40 Punkte in der Verteidungung dazubekommen.\n")
+        Thread.sleep(forTimeInterval: 0.8)
         for hero in heroes{
             print("Name: \(hero.name) | \(hero.defensePoints) Verteidigungspunkte")
         }
